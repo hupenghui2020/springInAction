@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- 先注释
+    <context:component-scan base-package="com.hph.demo"/>-->
+    <!--<bean id="compactDisc" class="com.hph.demo.SgtPeppers" />-->
+
+    <!--也可以用c:compactDisc_ref ，但是以后肯能参数名字会改变，所以用参数位置 _0 比较好-->
+    <!--<bean class="com.hph.demo.CDPlayer" c:_0-ref="compactDisc">
+        &lt;!&ndash;<constructor-arg ref="compactDisc" />&ndash;&gt;
+        &lt;!&ndash;这里使用c-命名空间的写法&ndash;&gt;
+    </bean>-->
+
+    <!--属性注入方式-->
+    <!--<bean class="com.hph.demo.CDPlayer">
+        <property name="compactDisc" ref="compactDisc"/>
+    </bean>-->
+
+    <!--属性注入：p-命名写法-->
+    <!--<bean class="com.hph.demo.CDPlayer" p:compactDisc-ref="compactDisc" />-->
+
+    <!--字面量参数注入构造器-->
+    <!--<bean id="compactDisc" class="com.hph.demo.BlankDisc">
+        <constructor-arg value="Sgt. Pepper's Lonely Hearts Club Band"/>
+        <constructor-arg value="The Beatles" />
+        <constructor-arg>
+            <list>
+                <value>Sgt. Pepper's Lonely Hearts Club Band</value>
+                <value>With a Little Help from My Friends</value>
+                <value>Lucy in the Sky with Diamonds</value>
+                <value>Getting Better</value>
+                <value>Fixing a Hole</value>
+            </list>
+        </constructor-arg>
+    </bean>-->
+
+    <!--<util:list id="tracks">
+        <value>Sgt. Pepper's Lonely Hearts Club Band</value>
+        <value>With a Little Help from My Friends</value>
+        <value>Lucy in the Sky with Diamonds</value>
+        <value>Getting Better</value>
+        <value>Fixing a Hole</value>
+    </util:list>-->
+
+    <!--属性注入：p-命名写法-->
+    <!--<bean id="compactDisc" class="com.hph.demo.BlankDisc"
+          p:title="Sgt. Pepper's Lonely Hearts Club Band"
+          p:artist="The Beatles"
+          p:tracks-ref="tracks">
+
+        &lt;!&ndash;因为p-命名的写法不能装配集合，所以用property注入的方式&ndash;&gt;
+        &lt;!&ndash;但是可以用util-命名的写法&ndash;&gt;
+        &lt;!&ndash;<property name="tracks">
+            <list>
+                <value>Sgt. Pepper's Lonely Hearts Club Band</value>
+                <value>With a Little Help from My Friends</value>
+                <value>Lucy in the Sky with Diamonds</value>
+                <value>Getting Better</value>
+                <value>Fixing a Hole</value>
+            </list>
+        </property>&ndash;&gt;
+    </bean>-->
+
+    <!--使用c-命名空间写法-->
+    <!--<bean id="compactDisc" class="com.hph.demo.BlankDisc"
+          c:_0="Sgt. Pepper's Lonely Hearts Club Band"
+          c:_1="The Beatles">
+    </bean>-->
+
+    <!--使用java配置和xml配置方案的混合-->
+
+    <!--<bean class="com.hph.demo.CDPlayerConfig" />
+
+    <import resource="classpath:cd-config.xml" />-->
+</beans>

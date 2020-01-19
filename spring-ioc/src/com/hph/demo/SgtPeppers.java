@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
  * @author 10499
  */
 
-@Component
 public class SgtPeppers implements CompactDisc {
 
     @Override
