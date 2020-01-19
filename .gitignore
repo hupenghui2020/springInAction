@@ -6,3 +6,5 @@
 *.class
 
 spring-ioc/out/
+
+spring-ioc/classes/
