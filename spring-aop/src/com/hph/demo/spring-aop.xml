@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--扫描路径-->
+    <!--<context:component-scan base-package="com.hph.demo" />-->
+
+    <!--启用AspectJ自动代理-->
+    <!--<aop:aspectj-autoproxy />-->
+
+    <bean class="com.hph.config.TrackCounterConfig" />
+
+    <aop:config>
+        <aop:aspect ref="audience">
+            
+            <aop:pointcut id="performPointcut" expression="execution(* com.hph.demo.Performance.perform(..))"/>
+
+            <aop:before method="silenceCellPhones" pointcut-ref="performPointcut" />
+
+            <aop:before method="takeSeats" pointcut-ref="performPointcut" />
+
+            <aop:after-returning method="applause" pointcut-ref="performPointcut" />
+
+            <aop:after-throwing method="demandRefund" pointcut-ref="performPointcut" />
+            
+        </aop:aspect>
+    </aop:config>
+
+    <aop:config>
+        <aop:aspect ref="trackCounter">
+
+            <aop:pointcut id="trackPoint" expression="execution(* com.hph.demo.CompactDisc.playTrack(int)) and args(trackNumber)"/>
+
+            <aop:before method="countTrack" pointcut-ref="trackPoint" arg-names="trackNumber" />
+
+            <aop:after-returning method="playedCount" pointcut-ref="trackPoint" arg-names="trackNumber" />
+        </aop:aspect>
+    </aop:config>
+
+    <!--带参数的切面定义-->
+    <bean id="trackCounter" class="com.hph.demo.TrackCounter" />
+
+    <!--切面bean-->
+    <bean id="audience" class="com.hph.demo.Audience" />
+
+    <bean id="performance" class="com.hph.demo.PerformanceImpl" />
+</beans>

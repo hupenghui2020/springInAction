@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.test.context.ActiveProfiles;
@@ -23,10 +24,10 @@ import static org.junit.Assert.*;
  * @author hph
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ActiveProfiles("dev")
-// @ContextConfiguration(locations = "spring-ioc.xml")
+// @ActiveProfiles("dev")
+@ContextConfiguration(locations = "spring-ioc.xml")
 // @ContextConfiguration(classes = SoundSystemConfig.class)
-@ContextConfiguration(classes = CDPlayerConfig.class)
+// @ContextConfiguration(classes = CDPlayerConfig.class)
 public class CDPlayerTest {
 
     @Resource

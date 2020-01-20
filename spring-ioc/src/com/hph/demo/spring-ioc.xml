@@ -25,7 +25,7 @@
     </bean>-->
 
     <!--属性注入：p-命名写法-->
-    <!--<bean class="com.hph.demo.CDPlayer" p:compactDisc-ref="compactDisc" />-->
+    <bean class="com.hph.demo.CDPlayer" p:compactDisc-ref="compactDisc" />
 
     <!--字面量参数注入构造器-->
     <!--<bean id="compactDisc" class="com.hph.demo.BlankDisc">
@@ -42,23 +42,22 @@
         </constructor-arg>
     </bean>-->
 
-    <!--<util:list id="tracks">
+    <util:list id="tracks">
         <value>Sgt. Pepper's Lonely Hearts Club Band</value>
         <value>With a Little Help from My Friends</value>
         <value>Lucy in the Sky with Diamonds</value>
         <value>Getting Better</value>
         <value>Fixing a Hole</value>
-    </util:list>-->
+    </util:list>
 
     <!--属性注入：p-命名写法-->
-    <!--<bean id="compactDisc" class="com.hph.demo.BlankDisc"
-          p:title="Sgt. Pepper's Lonely Hearts Club Band"
-          p:artist="The Beatles"
+    <bean id="compactDisc" class="com.hph.demo.BlankDisc"
+
           p:tracks-ref="tracks">
 
-        &lt;!&ndash;因为p-命名的写法不能装配集合，所以用property注入的方式&ndash;&gt;
-        &lt;!&ndash;但是可以用util-命名的写法&ndash;&gt;
-        &lt;!&ndash;<property name="tracks">
+        <!--因为p-命名的写法不能装配集合，所以用property注入的方式-->
+        <!--但是可以用util-命名的写法-->
+        <!--<property name="tracks">
             <list>
                 <value>Sgt. Pepper's Lonely Hearts Club Band</value>
                 <value>With a Little Help from My Friends</value>
@@ -66,8 +65,8 @@
                 <value>Getting Better</value>
                 <value>Fixing a Hole</value>
             </list>
-        </property>&ndash;&gt;
-    </bean>-->
+        </property>-->
+    </bean>
 
     <!--使用c-命名空间写法-->
     <!--<bean id="compactDisc" class="com.hph.demo.BlankDisc"
@@ -77,7 +76,10 @@
 
     <!--使用java配置和xml配置方案的混合-->
 
-    <!--<bean class="com.hph.demo.CDPlayerConfig" />
+    <bean class="com.hph.demo.CDConfig" />
 
-    <import resource="classpath:cd-config.xml" />-->
+    <!--<import resource="classpath:cd-config.xml" />-->
+
+    <!--引入PropertySourcesPlaceholderConfigurer进行占位符的解析-->
+    <import resource="property-sources.xml" />
 </beans>

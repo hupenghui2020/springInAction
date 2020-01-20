@@ -1,6 +1,7 @@
 package com.hph.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,9 +10,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class CDPlayer implements MediaPalyer{
 
-    @Autowired
+
     private CompactDisc compactDisc;
 
+    @Autowired
     public CDPlayer(CompactDisc compactDisc) {
         this.compactDisc = compactDisc;
     }
@@ -22,7 +24,8 @@ public class CDPlayer implements MediaPalyer{
         compactDisc.play();
     }
 
-    /*public void setCompactDisc(CompactDisc compactDisc) {
+
+    public void setCompactDisc(CompactDisc compactDisc) {
         this.compactDisc = compactDisc;
-    }*/
+    }
 }

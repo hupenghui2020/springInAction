@@ -1,7 +1,9 @@
 package com.hph.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.*;
+import org.springframework.core.env.Environment;
 import org.springframework.test.context.ActiveProfiles;
 
 import javax.annotation.Resource;
@@ -18,7 +20,12 @@ import java.util.List;
 // @Import(CDConfig.class)
 // @ComponentScan // 默认是当前配置文件所在的包
 // @ComponentScan(basePackageClasses = CompactDisc.class) // 扫描CompactDisc所在的包
+// 引入外部属性值文件
+@PropertySource("classpath:/com/hph/demo/app.properties")
 public class CDPlayerConfig {
+
+    @Autowired
+    private Environment environment;
 
     /**
      * 使用java方式进行显示配置
@@ -26,14 +33,20 @@ public class CDPlayerConfig {
      * @return
      */
     @Bean
-    @Profile("dev")
+    // 使用不同环境配置
+    // @Profile("dev")
+    // 标示首选的bean
+    // @Primary
+    // 限定符，可以与 @bean、@Component等一起使用
+    // @Qualifier("test")
     public CompactDisc sgtPeppers(){
 
         return new SgtPeppers();
     }
 
     @Bean
-    @Profile("prod")
+    @Primary
+    // @Profile("prod")
     public CompactDisc blankDisc(){
 
         List<String> list = new ArrayList<>();
@@ -43,8 +56,8 @@ public class CDPlayerConfig {
         list.add("Getting Better");
         list.add("Fixing a Hole");
         BlankDisc blankDisc = new BlankDisc();
-        blankDisc.setArtist("by The Beatles");
-        blankDisc.setTitle("Playing");
+        blankDisc.setArtist(environment.getProperty("artist"));
+        blankDisc.setTitle(environment.getProperty("title"));
         blankDisc.setTracks(list);
         return blankDisc;
     }

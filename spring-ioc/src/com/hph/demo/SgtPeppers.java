@@ -1,5 +1,7 @@
 package com.hph.demo;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 /**
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Component;
  * @author 10499
  */
 
+@Component
 public class SgtPeppers implements CompactDisc {
 
     @Override
