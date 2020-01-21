@@ -34,6 +34,7 @@
         </aop:aspect>
     </aop:config>
 
+    <!--带参数的切面-->
     <aop:config>
         <aop:aspect ref="trackCounter">
 
@@ -44,6 +45,18 @@
             <aop:after-returning method="playedCount" pointcut-ref="trackPoint" arg-names="trackNumber" />
         </aop:aspect>
     </aop:config>
+
+    <!--通过切面引入新的功能接口-->
+    <aop:config>
+        <aop:aspect>
+            <aop:declare-parents types-matching="com.hph.demo.Performance+"
+                                 implement-interface="com.hph.demo.Encoreable"
+                                 delegate-ref="defaultEncoreable" />
+        </aop:aspect>
+    </aop:config>
+
+    <!--新的功能接口的默认实现-->
+    <bean id="defaultEncoreable" class="com.hph.demo.DefaultEncoreable" />
 
     <!--带参数的切面定义-->
     <bean id="trackCounter" class="com.hph.demo.TrackCounter" />

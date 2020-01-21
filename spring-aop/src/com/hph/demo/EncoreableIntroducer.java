@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.DeclareParents;
  * 使用aop引进其它接口
  * @author hph
  */
-@Aspect
+// @Aspect
 public class EncoreableIntroducer {
 
     @DeclareParents(value = "com.hph.demo.Performance+",
