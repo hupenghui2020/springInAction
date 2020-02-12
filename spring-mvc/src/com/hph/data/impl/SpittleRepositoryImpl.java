@@ -14,10 +14,11 @@ import java.util.List;
 
 @Component
 public class SpittleRepositoryImpl implements SpittleRepository {
+
+    private List<Spittle> spittleList = new ArrayList<>(4);
+
     @Override
     public List<Spittle> findSpittles(long max, int count) {
-
-        List<Spittle> spittleList = new ArrayList<>(4);
 
         Spittle spittle1 = new Spittle("sdaw1", new Date(), 1d, 1d);
         Spittle spittle2 = new Spittle("sdaw2", new Date(), 2d, 2d);
@@ -29,5 +30,11 @@ public class SpittleRepositoryImpl implements SpittleRepository {
         spittleList.add(spittle3);
         spittleList.add(spittle4);
         return spittleList;
+    }
+
+    @Override
+    public Spittle findOne(Long spittleId) {
+
+        return spittleList.get(Integer.parseInt(spittleId.toString()));
     }
 }
