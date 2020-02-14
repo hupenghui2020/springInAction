@@ -2,6 +2,7 @@ package com.hph.data.impl;
 
 import com.hph.data.SpittleRepository;
 import com.hph.model.Spittle;
+import com.hph.model.Spitter;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -15,7 +16,9 @@ import java.util.List;
 @Component
 public class SpittleRepositoryImpl implements SpittleRepository {
 
-    private List<Spittle> spittleList = new ArrayList<>(4);
+    private List<Spittle> spittleList = new ArrayList<>();
+
+    private List<Spitter> spitterList = new ArrayList<>();
 
     @Override
     public List<Spittle> findSpittles(long max, int count) {
@@ -36,5 +39,17 @@ public class SpittleRepositoryImpl implements SpittleRepository {
     public Spittle findOne(Long spittleId) {
 
         return spittleList.get(Integer.parseInt(spittleId.toString()));
+    }
+
+    @Override
+    public void save(Spitter spitter) {
+
+        spitterList.add(spitter);
+    }
+
+    @Override
+    public Spitter findByUsername(String username) {
+
+        return spitterList.stream().filter(spitter -> spitter.getUsername().equals(username)).findFirst().orElse(null);
     }
 }

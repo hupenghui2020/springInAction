@@ -1,6 +1,7 @@
 package com.hph.data;
 
 import com.hph.model.Spittle;
+import com.hph.model.Spitter;
 
 import java.util.List;
 
@@ -24,4 +25,17 @@ public interface SpittleRepository {
      * @return
      */
     Spittle findOne(Long spittleId);
+
+    /**
+     * 保存user
+     * @param spitter
+     */
+    void save(Spitter spitter);
+
+    /**
+     * 获取指定的spitter
+     * @param username
+     * @return
+     */
+    Spitter findByUsername(String username);
 }
