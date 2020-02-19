@@ -16,7 +16,6 @@ public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherS
     @Override
     protected Class<?>[] getRootConfigClasses() {
 
-        System.out.println("-----------------------------");
         return new Class<?>[]{ RootConfig.class };
     }
 
@@ -28,7 +27,6 @@ public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherS
      */
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        System.out.println("-----------------------------");
 
         return new Class<?>[]{ WebConfig.class };
     }
@@ -39,7 +37,7 @@ public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherS
      */
     @Override
     protected String[] getServletMappings() {
-        System.out.println("-----------------------------");
+
         return new String[]{ "/" };
     }
 }

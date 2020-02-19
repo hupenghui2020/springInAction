@@ -1,25 +1,35 @@
-<%@ page contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
+<style type="text/css">
+
+    span.error {
+        color: red;
+    }
+</style>
+
 <head>
     <title>registerForm</title>
 </head>
 <body>
     <h1>Register</h1>
 
-    <form method="post">
+    <%--@elvariable id="spitter" type="com.hph.model.Spitter"--%>
+    <sf:form method="post" commandName="spitter">
+        First Name: <sf:input path="firstName"/><br/>
+        <sf:errors path="firstName" cssClass="error"/>
 
-        First Name: <input type="text" name="firstName"/><br/>
+        Last Name: <sf:input path="lastName"/><br/>
 
-        Last Name: <input type="text" name="lastName"/><br/>
+        Email: <sf:input path="email" /><br/>
 
-        Username: <input type="text" name="username"/><br/>
+        Username: <sf:input path="username"/><br/>
 
-        Password: <input type="password" name="password"/><br/>
+        Password: <sf:password path="password"/><br/>
 
-        <input type="submit" value="Register"/>
-    </form>
+        <input type="submit" value="Register" />
+    </sf:form>
 </body>
 </html>

@@ -1,17 +1,32 @@
 package com.hph.model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * 注册的用户
- * @author 10499
+ * @author hph
  */
 public class Spitter {
 
+    @NotNull
+    @Size(min = 5, max = 16, message = "sb sb sb sb")
     private String firstName;
 
+    @NotNull
+    @Size(min = 5, max = 16, message = "{lastName.size}")
     private String lastName;
 
+    @NotNull
+    @Size(min = 5, max = 16, message = "{email.size}")
+    private String email;
+
+    @NotNull
+    @Size(min = 5, max = 16, message = "{username.size}")
     private String username;
 
+    @NotNull
+    @Size(min = 5, max = 16, message = "{password.size}")
     private String password;
 
     public String getFirstName() {
@@ -28,6 +43,14 @@ public class Spitter {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getUsername() {
