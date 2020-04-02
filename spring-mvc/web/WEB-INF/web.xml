@@ -3,4 +3,52 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+    <!-- web.xml方式配置使用基于java的配置，可以不用SpittrWebAppInitializer启动 -->
+    <!--AnnotationConfigWebApplicationContext会去配置@Configuration注解的类上加载配置 用于初始化spring应用上下文 -->
+    <!--<context-param>
+        <param-name>contextClass</param-name>
+        <param-value>
+            org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+        </param-value>
+    </context-param>
+
+    &lt;!&ndash; 指定配置类 用于初始化spring应用上下文&ndash;&gt;
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>com.hph.config.RootConfig</param-value>
+    </context-param>
+
+    &lt;!&ndash; 用于初始化spring应用上下文 &ndash;&gt;
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+
+    &lt;!&ndash; 配置web servlet的拦截器映射 &ndash;&gt;
+    <servlet>
+        <servlet-name>appServlet</servlet-name>
+        <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+        &lt;!&ndash;AnnotationConfigWebApplicationContext会去配置@Configuration注解的类上加载配置 用于初始化spring web应用上下文 &ndash;&gt;
+        <init-param>
+            <param-name>contextClass</param-name>
+            <param-value>
+                org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+            </param-value>
+        </init-param>
+        &lt;!&ndash; 指定配置类 用于初始化spring web应用上下文 &ndash;&gt;
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>com.hph.config.WebConfig</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>appServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>-->
 </web-app>

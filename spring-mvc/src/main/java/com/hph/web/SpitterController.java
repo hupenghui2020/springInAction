@@ -2,18 +2,15 @@ package com.hph.web;
 
 import com.hph.data.SpittleRepository;
 import com.hph.model.Spitter;
-import com.hph.model.Spittle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.Part;
 import javax.validation.Valid;
-import java.util.List;
 
 /**
  * @author hph
@@ -37,15 +34,15 @@ public class SpitterController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String processRegistrationForm(@Valid Spitter spitter, Errors errors){
+    public String processRegistrationForm(@Valid Spitter spitter, Errors errors,
+                                          @RequestPart("profilePicture") Part profilePicture,
+                                          RedirectAttributes model){
 
         if(errors.hasErrors()){
-
             return "registerForm";
         }
-
+        model.addFlashAttribute(spitter);
         spittleRepository.save(spitter);
-
         return "redirect:/spitter/" + spitter.getUsername();
     }
 

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author hph
  */
 @Controller
-@RequestMapping(value = {"/homepage"})
+@RequestMapping(value = "/homepage")
 public class HelloController {
 
     @RequestMapping(method = RequestMethod.GET)
