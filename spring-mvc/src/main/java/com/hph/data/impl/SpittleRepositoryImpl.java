@@ -4,6 +4,7 @@ import com.hph.data.SpittleRepository;
 import com.hph.model.Spittle;
 import com.hph.model.Spitter;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,7 +14,7 @@ import java.util.List;
  * @author hph
  */
 
-@Component
+@Repository
 public class SpittleRepositoryImpl implements SpittleRepository {
 
     private List<Spittle> spittleList = new ArrayList<>();
