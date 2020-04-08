@@ -37,7 +37,6 @@ public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherS
         return new Class<?>[]{ WebConfig.class };
     }
 
-
     /**
      * 请求映射规则
      * @return
@@ -48,7 +47,6 @@ public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 
         return new String[]{ "/" };
     }
-
 
     /**
      * servlet对multipart 请求的一些自定义配置

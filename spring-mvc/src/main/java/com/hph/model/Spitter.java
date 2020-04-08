@@ -1,5 +1,7 @@
 package com.hph.model;
 
+import lombok.Data;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -7,27 +9,23 @@ import javax.validation.constraints.Size;
  * 注册的用户
  * @author hph
  */
+
+@Data
 public class Spitter {
 
-    @NotNull
-    @Size(min = 5, max = 16, message = "sb sb sb sb")
+    private int id;
+
     private String firstName;
 
-    @NotNull
-    @Size(min = 5, max = 16, message = "{lastName.size}")
     private String lastName;
 
-    @NotNull
-    @Size(min = 5, max = 16, message = "{email.size}")
     private String email;
 
-    @NotNull
-    @Size(min = 5, max = 16, message = "{username.size}")
     private String username;
 
-    @NotNull
-    @Size(min = 5, max = 16, message = "{password.size}")
     private String password;
+
+
 
     public String getFirstName() {
         return firstName;

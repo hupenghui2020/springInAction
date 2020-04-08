@@ -4,6 +4,9 @@ import com.hph.data.SpittleRepository;
 import com.hph.model.Spittle;
 import com.hph.model.Spitter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,11 +38,11 @@ public class SpittleController {
      * @return
      */
     @RequestMapping(method = RequestMethod.GET)
-    public List<Spittle> spittleList(
-            @RequestParam(value = "max", defaultValue = MAX_LONG_AS_STRING) long max,
+    public Page<Spittle> spittleList(
+            @RequestParam(value = "max", defaultValue = MAX_LONG_AS_STRING) int max,
             @RequestParam(value = "count", defaultValue = "20") int count){
 
-        return spittleRepository.findSpittles(max, count);
+        return spittleRepository.findAll(PageRequest.of(max, count));
     }
 
     /**
@@ -49,34 +52,11 @@ public class SpittleController {
      * @return
      */
     @RequestMapping(value = "/{spittleId}", method = RequestMethod.GET)
-    public String spittle(@PathVariable("spittleId") long spittleId, Model model){
+    public String spittle(@PathVariable("spittleId") int spittleId, Model model){
 
         // key值为spittle，根据添加的属性类型判断
-        model.addAttribute(spittleRepository.findOne(spittleId));
+        model.addAttribute(spittleRepository.findById(spittleId));
 
         return "spittle";
-    }
-
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public String showRegistrationForm(){
-
-        return "registerForm";
-    }
-
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String processRegistrationForm(Spitter spitter){
-
-        spittleRepository.save(spitter);
-
-        return "redirect:/spittle/" + spitter.getUsername();
-    }
-
-    @RequestMapping(value = "/{username}", method = RequestMethod.GET)
-    public String showSpitterProfile(@PathVariable("username") String username, Model model){
-
-        // key值为spitter，根据添加的属性类型判断
-        model.addAttribute(spittleRepository.findByUsername(username));
-
-        return "profile";
     }
 }

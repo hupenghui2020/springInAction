@@ -16,3 +16,5 @@ spring-mvc/out/
 spring-mvc/classes/
 
 out/
+
+spring-mvc/target/
