@@ -1,0 +1,15 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0"
+          xmlns:form="http://www.springframework.org/tags/form">
+    <html>
+    <head><title>Spizza</title></head>
+    <body>
+        <h2>Welcome to Pizza!!</h2>
+        <form:form>
+            <!-- flowExecutionKey：当进入视图时，流程暂停并等待用户采取一些行为；当提交表单时，会返回流程，flowExecutionKey相当于一种返回流程的 “回程票” -->
+            <input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}" />
+            <input type="text" name="phoneNumber" /><br/>
+            <input type="submit" name="_eventId_phoneEntered" value="Lookup Customer" />
+        </form:form>
+    </body>
+    </html>
+</jsp:root>

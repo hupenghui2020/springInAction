@@ -9,4 +9,16 @@ import java.io.Serializable;
  */
 @Data
 public class Customer implements Serializable {
+
+    private String phoneNumber;
+
+    private String zipCode;
+
+    private String name;
+
+    private String address;
+
+    private String city;
+
+    private String state;
 }

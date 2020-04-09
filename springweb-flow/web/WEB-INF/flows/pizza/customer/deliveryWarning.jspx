@@ -1,0 +1,13 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
+    <html>
+    <head><title>Spizza</title></head>
+    <body>
+        <h2>Delivery Unavailable</h2>
+        <p>超出配送地址了，自己过来拿!!!</p>
+        <![CDATA[
+        <a href="${flowExecutionUrl}&_eventId=accept">好的，我自己去拿</a>
+        <a href="${flowExecutionUrl}&_eventId=cancel">老子不吃了</a>
+        ]]>
+    </body>
+    </html>
+</jsp:root>
