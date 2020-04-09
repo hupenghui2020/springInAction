@@ -2,13 +2,9 @@ package com.hph.web;
 
 import com.hph.config.RootConfig;
 import com.hph.config.WebConfig;
-import com.hph.data.SpittleRepository;
-import com.hph.model.Spittle;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;

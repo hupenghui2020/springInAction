@@ -15,8 +15,8 @@ import javax.sql.DataSource;
  * EnableJpaRepositories 注解是spring data jpa的实现，通过该注解对指定的包进行扫描，并自动生成接口的实现
  * @author hph
  */
-@EnableJpaRepositories(basePackages = "com.hph.data")
 @Configuration
+@EnableJpaRepositories(basePackages = "com.hph.data")
 public class JpaConfiguration {
 
     /**
