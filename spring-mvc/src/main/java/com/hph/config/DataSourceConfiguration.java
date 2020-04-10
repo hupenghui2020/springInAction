@@ -1,8 +1,14 @@
 package com.hph.config;
 
+import com.hph.model.Product;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
@@ -21,7 +27,7 @@ public class DataSourceConfiguration {
     public DataSource dataSource(){
         BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        basicDataSource.setUrl("jdbc:mysql://localhost:3306/demo");
+        basicDataSource.setUrl("jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false");
         basicDataSource.setUsername("root");
         basicDataSource.setPassword("123456");
         basicDataSource.setInitialSize(5);
@@ -38,4 +44,30 @@ public class DataSourceConfiguration {
     public JdbcTemplate jdbcTemplate(DataSource dataSource){
         return new JdbcTemplate(dataSource);
     }*/
+
+    /**
+     * redis 连接工厂
+     * @return
+     */
+    @Bean
+    public RedisConnectionFactory redisConnectionFactory(){
+        return new JedisConnectionFactory();
+    }
+
+    /**
+     * redis 模板
+     * @param redisConnectionFactory
+     * @return
+     */
+    @Bean
+    public RedisTemplate<String, Product> redisTemplate(RedisConnectionFactory redisConnectionFactory){
+
+        RedisTemplate<String, Product> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(redisConnectionFactory);
+        // key 序列化方式
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        // value 序列化方式
+        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(Product.class));
+        return redisTemplate;
+    }
 }

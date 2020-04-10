@@ -13,6 +13,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.annotation.Resource;
 import javax.servlet.http.Part;
 import javax.validation.Valid;
 import java.util.Objects;
@@ -24,12 +25,8 @@ import java.util.Objects;
 @RequestMapping(value = "/spitter")
 public class SpitterController {
 
-    private SpitterRepository spitterRepository;
-
     @Autowired
-    public SpitterController(SpitterRepository spitterRepository) {
-        this.spitterRepository = spitterRepository;
-    }
+    private SpitterRepository spitterRepository;
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String showRegistrationForm(Model model){
@@ -46,6 +43,7 @@ public class SpitterController {
         if(errors.hasErrors()){
             return "registerForm";
         }
+        spitter.setPicName(profilePicture.getSubmittedFileName());
         model.addFlashAttribute(spitter);
         spitterRepository.save(spitter);
         return "redirect:/spitter/" + spitter.getUsername();

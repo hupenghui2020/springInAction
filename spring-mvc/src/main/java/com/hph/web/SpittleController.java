@@ -23,14 +23,10 @@ import java.util.List;
 @RequestMapping(value = "/spittles")
 public class SpittleController {
 
+    @Autowired
     private SpittleRepository spittleRepository;
 
     private static final String MAX_LONG_AS_STRING = Long.MAX_VALUE+"";
-
-    @Autowired
-    public SpittleController(SpittleRepository spittleRepository) {
-        this.spittleRepository = spittleRepository;
-    }
 
     /**
      * 返回的视图根据访问路径判断，也就是spittles
