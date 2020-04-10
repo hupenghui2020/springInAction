@@ -2,9 +2,7 @@ package com.hph.web;
 
 import com.hph.data.SpittleRepository;
 import com.hph.model.Spittle;
-import com.hph.model.Spitter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -13,8 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
 
 /**
  * @author hph
@@ -48,7 +44,7 @@ public class SpittleController {
      * @return
      */
     @RequestMapping(value = "/{spittleId}", method = RequestMethod.GET)
-    public String spittle(@PathVariable("spittleId") int spittleId, Model model){
+    public String spittle(@PathVariable("spittleId") String spittleId, Model model){
 
         // key值为spittle，根据添加的属性类型判断
         model.addAttribute(spittleRepository.findById(spittleId));

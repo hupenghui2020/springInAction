@@ -5,6 +5,7 @@ import com.hph.data.SpittleRepository;
 import com.hph.model.Spitter;
 import com.hph.model.Spittle;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Controller;

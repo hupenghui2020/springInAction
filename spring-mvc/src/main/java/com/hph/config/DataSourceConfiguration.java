@@ -56,18 +56,20 @@ public class DataSourceConfiguration {
 
     /**
      * redis 模板
+     * 这里有两个用处：NOSQL 和 作为缓存管理器
      * @param redisConnectionFactory
      * @return
      */
     @Bean
-    public RedisTemplate<String, Product> redisTemplate(RedisConnectionFactory redisConnectionFactory){
+    public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory redisConnectionFactory){
 
-        RedisTemplate<String, Product> redisTemplate = new RedisTemplate<>();
+        RedisTemplate<String, String> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(redisConnectionFactory);
         // key 序列化方式
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         // value 序列化方式
-        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(Product.class));
+        redisTemplate.setValueSerializer(new StringRedisSerializer());
+        //redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(Product.class));
         return redisTemplate;
     }
 }
