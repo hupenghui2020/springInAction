@@ -3,17 +3,14 @@ package com.hph.config;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.cache.ehcache.EhCacheCacheManager;
 import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
-import org.springframework.cache.jcache.JCacheCacheManager;
 import org.springframework.cache.support.CompositeCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +40,6 @@ public class CacheConfiguration {
      * @return
      */
     @Bean
-    @Qualifier("redisCacheManager")
     public CacheManager cacheManager(RedisConnectionFactory redisConnectionFactory){
         return RedisCacheManager.create(redisConnectionFactory);
     }
@@ -53,11 +49,11 @@ public class CacheConfiguration {
      * @param cacheManager 注入 EhCacheManagerFactoryBean 产生的 cacheManage
      * @return
      */
-    @Bean
-    public EhCacheCacheManager cacheCacheManager(net.sf.ehcache.CacheManager cacheManager){
+    /*@Bean
+    public EhCacheCacheManager cacheManager(net.sf.ehcache.CacheManager cacheManager){
 
         return new EhCacheCacheManager(cacheManager);
-    }
+    }*/
 
     /**
      * 这里并不会将 EhCacheManagerFactoryBean 实例注册到 spring 容器中，
@@ -65,13 +61,13 @@ public class CacheConfiguration {
      * 会注册 CacheManager 实例给上面的 EhCacheCacheManager bean 进行注入
      * @return
      */
-    @Bean
-    public EhCacheManagerFactoryBean ehCacheManagerFactoryBean(){
+    /*@Bean
+    public EhCacheManagerFactoryBean ehcache(){
 
-        EhCacheManagerFactoryBean ehCacheManagerFactoryBean = new EhCacheManagerFactoryBean();
-        ehCacheManagerFactoryBean.setConfigLocation(new ClassPathResource("com.hph.cache.ehcache.xml"));
-        return ehCacheManagerFactoryBean;
-    }
+        EhCacheManagerFactoryBean ehCacheFactoryBean = new EhCacheManagerFactoryBean();
+        ehCacheFactoryBean.setConfigLocation(new ClassPathResource("ehcache.xml"));
+        return ehCacheFactoryBean;
+    }*/
 
     /**
      * 使用多个缓存管理器
@@ -80,13 +76,13 @@ public class CacheConfiguration {
      * @param rcm redis 缓存管理器
      * @return CacheManager
      */
-    @Bean
-    public CacheManager cacheManager(net.sf.ehcache.CacheManager cm, @Qualifier("redisCacheManager") CacheManager rcm){
+    /*@Bean
+    public CacheManager cacheManager(net.sf.ehcache.CacheManager cm, @Qualifier("cacheManager") CacheManager rcm){
         CompositeCacheManager compositeCacheManager = new CompositeCacheManager();
         List<CacheManager> managers = new ArrayList<>();
         managers.add(rcm);
         managers.add(new EhCacheCacheManager(cm));
         compositeCacheManager.setCacheManagers(managers);
         return compositeCacheManager;
-    }
+    }*/
 }

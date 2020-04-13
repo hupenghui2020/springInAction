@@ -2,6 +2,7 @@ package com.hph.model;
 
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -24,6 +25,7 @@ public class Spittle {
     private String message;
 
     @Column(name = "time", unique = true, nullable = false, length = 36)
+    @JsonFormat(timezone = "GMT+8",pattern = "yyyy/MM/dd HH:mm:ss")
     private Date time;
 
     @Column(name = "latitude", unique = true, nullable = false, length = 36)

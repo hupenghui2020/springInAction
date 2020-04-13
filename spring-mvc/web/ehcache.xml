@@ -1,7 +1,24 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
 
-<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
-              version="2.0">
-</faces-config>
+<!-- 磁盘缓存位置 -->
+<diskStore path="java.io.tmpdir/ehcache"/>
+
+<!-- 默认缓存 -->
+<defaultCache
+        maxEntriesLocalHeap="10000"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="120"
+        maxEntriesLocalDisk="10000000"
+        diskExpiryThreadIntervalSeconds="120"
+        memoryStoreEvictionPolicy="LRU"/>
+
+<!-- spittleCache缓存 -->
+<cache name="spittleCache"
+       maxElementsInMemory="1000"
+       timeToIdleSeconds="0"
+       timeToLiveSeconds="1000"
+       overflowToDisk="false"
+       memoryStoreEvictionPolicy="LRU"/>
+</ehcache>

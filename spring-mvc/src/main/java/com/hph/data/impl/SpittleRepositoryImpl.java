@@ -18,9 +18,31 @@ public class SpittleRepositoryImpl implements SpittleRepositorySwapper {
     private EntityManager entityManager;
 
     @Override
-    public Spittle findOne(String id) {
+    public Spittle findOneSpittle(String id) {
 
         String sql = "select * from spittle where id =" + id;
         return (Spittle)entityManager.createQuery(sql).getSingleResult();
+    }
+
+    @Override
+    public Spittle saveSpittle(Spittle spittle) {
+
+        String insertSql = "INSERT INTO spittle values (:message, :time, :latitude, :longitude)";
+
+        int n = entityManager.createQuery(insertSql)
+                .setParameter("message", spittle.getMessage())
+                .setParameter("time", spittle.getTime())
+                .setParameter("latitude", spittle.getLatitude())
+                .setParameter("longitude", spittle.getLongitude()).executeUpdate();
+
+        return n > 0 ? entityManager.find(Spittle.class, spittle) : null;
+    }
+
+    @Override
+    public void removeSpittle(String spittleId) {
+
+        String deleteSql = "DELETE from spittle where id = " + spittleId;
+
+        entityManager.createQuery(deleteSql).executeUpdate();
     }
 }

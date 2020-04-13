@@ -7,10 +7,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import javax.jws.WebParam;
 
 /**
  * @author hph
@@ -29,7 +28,7 @@ public class SpittleController {
      * 返回的mode的key根据返回类型判断，也就是spittleList
      * @return
      */
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public Page<Spittle> spittleList(
             @RequestParam(value = "max", defaultValue = MAX_LONG_AS_STRING) int max,
             @RequestParam(value = "count", defaultValue = "20") int count){
@@ -43,12 +42,31 @@ public class SpittleController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/{spittleId}", method = RequestMethod.GET)
-    public String spittle(@PathVariable("spittleId") String spittleId, Model model){
+    @GetMapping(value = "/{spittleId}")
+    public String findBySpittleId(@PathVariable("spittleId") String spittleId, Model model){
 
         // key值为spittle，根据添加的属性类型判断
-        model.addAttribute(spittleRepository.findById(spittleId));
-
+        model.addAttribute(spittleRepository.findOneSpittle(spittleId));
         return "spittle";
+    }
+
+    @DeleteMapping(value = "/{spittleId}")
+    public void removeSpittle(@PathVariable("spittleId") String spittleId){
+
+        // key值为spittle，根据添加的属性类型判断
+        spittleRepository.removeSpittle(spittleId);
+    }
+
+    @GetMapping(value = "/save")
+    public String toAddSpittle(Model model){
+
+        model.addAttribute(new Spittle());
+        return "addSpittle";
+    }
+
+    @PostMapping(value = "/save")
+    public void saveSpittle(@RequestBody Spittle spittle){
+
+        spittleRepository.saveSpittle(spittle);
     }
 }

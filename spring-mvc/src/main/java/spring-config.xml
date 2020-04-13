@@ -1,14 +1,17 @@
+<!--
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:cache="http://www.springframework.org/schema/cache"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/cache
-       http://www.springframework.org/schema/context/spring-cache.xsd
        http://www.springframework.org/schema/aop
-       http://www.springframework.org/schema/aop/spring-aop.xsd">
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/cache
+       http://www.springframework.org/schema/cache/spring-cache.xsd">
 
+    &lt;!&ndash; 缓存的xml配置方式 &ndash;&gt;
     <aop:config>
         <aop:advisor advice-ref="cacheAdvice" pointcut="execution(* com.hph.data.SpittleRepositorySwapper.*(..))" />
     </aop:config>
@@ -28,4 +31,4 @@
     </cache:advice>
 
     <bean id="cacheManager" class="org.springframework.cache.concurrent.ConcurrentMapCacheManager" />
-</beans>
+</beans>-->

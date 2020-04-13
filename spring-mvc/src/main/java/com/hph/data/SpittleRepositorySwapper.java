@@ -23,8 +23,8 @@ public interface SpittleRepositorySwapper {
      */
     @Cacheable(value = "spittleCache",
             unless = "#result.message.contains('NoCache')",
-            condition = "#id >= 10")
-    Spittle findOne(String id);
+            condition = "#id != 10")
+    Spittle findOneSpittle(String id);
 
     /**
      * 保存
@@ -37,7 +37,7 @@ public interface SpittleRepositorySwapper {
      */
     @CachePut(value = "spittleCache",
             key = "#result.id")
-    Spittle save(Spittle spittle);
+    Spittle saveSpittle(Spittle spittle);
 
     /**
      * 移除
@@ -45,5 +45,5 @@ public interface SpittleRepositorySwapper {
      * @param spittleId
      */
     @CacheEvict(value = "spittleCache")
-    void remove(String spittleId);
+    void removeSpittle(String spittleId);
 }
