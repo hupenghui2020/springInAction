@@ -4,6 +4,9 @@ import com.hph.model.Spittle;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.Transient;
 
 /**
  * @author hph
@@ -37,6 +40,7 @@ public interface SpittleRepositorySwapper {
      */
     @CachePut(value = "spittleCache",
             key = "#result.id")
+    @Transactional(rollbackFor = Exception.class)
     Spittle saveSpittle(Spittle spittle);
 
     /**

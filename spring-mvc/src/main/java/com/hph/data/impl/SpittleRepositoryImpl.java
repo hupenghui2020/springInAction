@@ -2,10 +2,14 @@ package com.hph.data.impl;
 
 import com.hph.data.SpittleRepositorySwapper;
 import com.hph.model.Spittle;
+import org.hibernate.query.criteria.internal.CriteriaDeleteImpl;
 import org.springframework.cache.annotation.Cacheable;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaDelete;
+import java.util.UUID;
 
 /**
  * 通过这种方式可以自定义 sql
@@ -27,22 +31,26 @@ public class SpittleRepositoryImpl implements SpittleRepositorySwapper {
     @Override
     public Spittle saveSpittle(Spittle spittle) {
 
-        String insertSql = "INSERT INTO spittle values (:message, :time, :latitude, :longitude)";
+        String insertSql = "INSERT INTO spittle values (:id, :message, :createTime, :latitude, :longitude)";
 
-        int n = entityManager.createQuery(insertSql)
+        String id = UUID.randomUUID().toString();
+
+        int n = entityManager.createNativeQuery(insertSql)
+                .setParameter("id", id)
                 .setParameter("message", spittle.getMessage())
-                .setParameter("time", spittle.getTime())
+                .setParameter("createTime", spittle.getCreateTime())
                 .setParameter("latitude", spittle.getLatitude())
                 .setParameter("longitude", spittle.getLongitude()).executeUpdate();
 
-        return n > 0 ? entityManager.find(Spittle.class, spittle) : null;
+        return n > 0 ? entityManager.find(Spittle.class, id) : null;
     }
 
     @Override
     public void removeSpittle(String spittleId) {
 
-        String deleteSql = "DELETE from spittle where id = " + spittleId;
+        String deleteSql = "DELETE from spittle where id = :id";
 
-        entityManager.createQuery(deleteSql).executeUpdate();
+        entityManager.createNativeQuery(deleteSql)
+                .setParameter("id", spittleId).executeUpdate();
     }
 }

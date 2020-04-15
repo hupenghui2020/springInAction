@@ -65,7 +65,7 @@ public class SpittleController {
     }
 
     @PostMapping(value = "/save")
-    public void saveSpittle(@RequestBody Spittle spittle){
+    public void saveSpittle(Spittle spittle){
 
         spittleRepository.saveSpittle(spittle);
     }

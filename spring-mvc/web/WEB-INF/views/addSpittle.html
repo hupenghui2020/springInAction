@@ -22,11 +22,11 @@
         </label>
         <input type="text" th:field="*{message}" th:class="${#fields.hasErrors('message')} ? 'error'"><br>
 
-        <!-- time -->
-        <label th:class="${#fields.hasErrors('time')} ? 'error'">
+        <!-- createTime -->
+        <label th:class="${#fields.hasErrors('createTime')} ? 'error'">
             time
         </label>
-        <input type="date" th:field="*{time}" th:class="${#fields.hasErrors('time')} ? 'error'"><br>
+        <input type="date" th:field="*{createTime}" th:class="${#fields.hasErrors('createTime')} ? 'error'"><br>
 
         <!-- latitude -->
         <label th:class="${#fields.hasErrors('latitude')} ? 'error'">

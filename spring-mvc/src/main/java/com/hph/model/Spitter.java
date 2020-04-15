@@ -3,6 +3,7 @@ package com.hph.model;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 /**
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "spitter")
 @Data
-public class Spitter {
+public class Spitter implements Serializable {
 
     @Id
     @GenericGenerator(name = "idGenerator", strategy = "uuid")

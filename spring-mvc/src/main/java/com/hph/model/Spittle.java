@@ -3,8 +3,8 @@ package com.hph.model;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -14,23 +14,23 @@ import java.util.Date;
 @Entity
 @Table(name = "spittle")
 @Data
-public class Spittle {
+public class Spittle implements Serializable {
 
     @Id
     @GenericGenerator(name = "idGenerator", strategy = "uuid")
     @GeneratedValue(generator = "idGenerator")
     private String id;
 
-    @Column(name = "message", unique = true, nullable = false, length = 36)
+    @Column(name = "message")
     private String message;
 
-    @Column(name = "time", unique = true, nullable = false, length = 36)
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy/MM/dd HH:mm:ss")
-    private Date time;
+    @Column(name = "create_time")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date createTime;
 
-    @Column(name = "latitude", unique = true, nullable = false, length = 36)
-    private Double latitude;
+    @Column(name = "latitude")
+    private double latitude;
 
-    @Column(name = "longitude", unique = true, nullable = false, length = 36)
-    private Double longitude;
+    @Column(name = "longitude")
+    private double longitude;
 }
