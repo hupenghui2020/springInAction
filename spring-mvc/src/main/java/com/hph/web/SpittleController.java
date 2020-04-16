@@ -51,10 +51,11 @@ public class SpittleController {
     }
 
     @DeleteMapping(value = "/{spittleId}")
-    public void removeSpittle(@PathVariable("spittleId") String spittleId){
+    public String removeSpittle(@PathVariable("spittleId") String spittleId){
 
         // key值为spittle，根据添加的属性类型判断
         spittleRepository.removeSpittle(spittleId);
+        return "removeSuccessful";
     }
 
     @GetMapping(value = "/save")
@@ -65,8 +66,9 @@ public class SpittleController {
     }
 
     @PostMapping(value = "/save")
-    public void saveSpittle(Spittle spittle){
+    public String saveSpittle(Spittle spittle){
 
         spittleRepository.saveSpittle(spittle);
+        return "successful";
     }
 }
