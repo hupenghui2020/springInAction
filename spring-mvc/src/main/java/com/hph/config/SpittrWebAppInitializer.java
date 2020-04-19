@@ -1,12 +1,15 @@
 package com.hph.config;
 
+import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
+import java.nio.channels.spi.AbstractSelector;
 
 
 /**
  * servlet初始类：使用这种方式来配置应用上下问来替代传统的web.xml配置方式
+ * AbstractAnnotationConfigDispatcherServletInitializer
  * @author hph
  */
 

@@ -32,6 +32,12 @@ public class SpitterController {
         return "registerForm";
     }
 
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String showLoginForm(){
+
+        return "login";
+    }
+
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String processRegistrationForm(@Valid Spitter spitter, Errors errors,
                                           @RequestPart("profilePicture") Part profilePicture,
