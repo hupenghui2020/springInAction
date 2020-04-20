@@ -7,7 +7,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 
@@ -15,7 +14,6 @@ import javax.sql.DataSource;
  * 启用基于注解的方法安全性
  * @author 10499
  */
-@Configuration
 @EnableWebSecurity
 public class MethodSecurity extends WebSecurityConfigurerAdapter {
 
