@@ -1,10 +1,8 @@
 package com.hph.config;
 
-import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
-import java.nio.channels.spi.AbstractSelector;
 
 
 /**
