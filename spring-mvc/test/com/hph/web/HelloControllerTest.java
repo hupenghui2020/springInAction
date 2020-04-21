@@ -12,13 +12,4 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standal
  */
 public class HelloControllerTest {
 
-    @Test
-    public void testHome() throws Exception {
-
-        HelloController helloController = new HelloController();
-
-        MockMvc mockMvc = standaloneSetup(helloController).build();
-
-        mockMvc.perform(get("/")).andExpect(view().name("home"));
-    }
 }

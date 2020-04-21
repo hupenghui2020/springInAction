@@ -20,14 +20,4 @@ public class SpittleControllerTest {
     @Autowired
     private SpittleController spittleController;
 
-    @Test
-    public void shouldShowRecentSpittles() throws Exception {
-
-        MockMvc mockMvc = standaloneSetup(spittleController)
-                .setSingleView(new InternalResourceView("/WEB-INF/views/spittles.jsp")).build();
-
-        mockMvc.perform(get("/spittles"))
-                .andExpect(view().name("spittles"));
-
-    }
 }
