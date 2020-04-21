@@ -1,12 +1,15 @@
 package com.hph.web;
 
+import com.hph.data.SpittleRepository;
 import com.hph.model.Spittle;
-import com.hph.service.SpittleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import javax.annotation.Resource;
+
+import javax.jws.WebParam;
 
 /**
  * @author hph
@@ -15,8 +18,8 @@ import javax.annotation.Resource;
 @RequestMapping(value = "/spittles")
 public class SpittleController {
 
-    @Resource
-    private SpittleService spittleService;
+    @Autowired
+    private SpittleRepository spittleRepository;
 
     private static final String MAX_LONG_AS_STRING = Long.MAX_VALUE+"";
 
@@ -30,7 +33,7 @@ public class SpittleController {
             @RequestParam(value = "max", defaultValue = MAX_LONG_AS_STRING) int max,
             @RequestParam(value = "count", defaultValue = "20") int count){
 
-        return spittleService.findAllForPage(max, count);
+        return spittleRepository.findAll(PageRequest.of(max, count));
     }
 
     /**
@@ -43,7 +46,7 @@ public class SpittleController {
     public String findBySpittleId(@PathVariable("spittleId") String spittleId, Model model){
 
         // key值为spittle，根据添加的属性类型判断
-        model.addAttribute(spittleService.findOneSpittle(spittleId));
+        model.addAttribute(spittleRepository.findOneSpittle(spittleId));
         return "spittle";
     }
 
@@ -51,7 +54,7 @@ public class SpittleController {
     public String removeSpittle(@PathVariable("spittleId") String spittleId){
 
         // key值为spittle，根据添加的属性类型判断
-        spittleService.removeSpittle(spittleId);
+        spittleRepository.removeSpittle(spittleId);
         return "removeSuccessful";
     }
 
@@ -65,7 +68,7 @@ public class SpittleController {
     @PostMapping(value = "/save")
     public String saveSpittle(Spittle spittle){
 
-        spittleService.saveSpittle(spittle);
+        spittleRepository.saveSpittle(spittle);
         return "successful";
     }
 }

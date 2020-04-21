@@ -11,7 +11,7 @@ import javax.servlet.ServletRegistration;
  * @author hph
  */
 
-public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     /**
      * spring应用上下文的配置
