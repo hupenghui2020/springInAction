@@ -2,13 +2,8 @@ package com.hph.data.impl;
 
 import com.hph.data.SpittleRepositorySwapper;
 import com.hph.model.Spittle;
-import org.hibernate.query.criteria.internal.CriteriaDeleteImpl;
-import org.springframework.cache.annotation.Cacheable;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaDelete;
 import java.util.UUID;
 
 /**

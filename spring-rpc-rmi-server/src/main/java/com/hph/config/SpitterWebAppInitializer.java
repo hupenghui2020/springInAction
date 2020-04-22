@@ -10,9 +10,7 @@ import org.springframework.web.context.WebApplicationContext;
  * AbstractAnnotationConfigDispatcherServletInitializer
  * @author hph
  */
-
 public class SpitterWebAppInitializer extends AbstractContextLoaderInitializer {
-
 
     @Override
     protected WebApplicationContext createRootApplicationContext() {

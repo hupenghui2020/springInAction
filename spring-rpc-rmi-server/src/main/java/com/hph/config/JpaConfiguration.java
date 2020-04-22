@@ -46,17 +46,6 @@ public class JpaConfiguration {
     }
 
     /**
-     * JNDI方式获取entityManagerFactory
-     * @return
-     */
-    /*@Bean
-    public JndiObjectFactoryBean entityManagerFactory(){
-        JndiObjectFactoryBean jndiObjectFactoryBean = new JndiObjectFactoryBean();
-        jndiObjectFactoryBean.setJndiName("jdbc/SpitterDS");
-        return jndiObjectFactoryBean;
-    }*/
-
-    /**
      * JPA厂商适配器（JPA的实现），这里用的是 hibernate
      * @return JpaVendorAdapter
      */
