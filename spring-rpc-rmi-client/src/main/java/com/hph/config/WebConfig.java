@@ -8,9 +8,6 @@ import org.springframework.web.multipart.support.StandardServletMultipartResolve
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.thymeleaf.spring5.SpringTemplateEngine;
-import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
-import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 /**
  * @author hph
@@ -20,26 +17,6 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 @EnableWebMvc
 @ComponentScan(basePackages = "com.hph.web")
 public class WebConfig implements WebMvcConfigurer {
-
-    /**
-     * 配置jsp的视图解析器
-     * @return
-     */
-    /*@Bean
-    public ViewResolver viewResolver(){
-
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-
-        // 设置视图前缀
-        viewResolver.setPrefix("/WEB-INF/views/");
-
-        // 设置视图后缀
-        viewResolver.setSuffix(".jsp");
-
-        viewResolver.setExposeContextBeansAsAttributes(true);
-
-        return viewResolver;
-    }*/
 
     /**
      * 将静态资源的请求交给servlet容器的默认servlet处理
@@ -59,44 +36,5 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     public MultipartResolver multipartResolver(){
         return new StandardServletMultipartResolver();
-    }
-
-    /**
-     * Thymeleaf视图解析器：将逻辑视图名称解析为Thymeleaf视图模板
-     * @param templateEngine
-     * @return ThymeleafViewResolver
-     */
-    @Bean
-    public ThymeleafViewResolver viewResolver(SpringTemplateEngine templateEngine){
-
-        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-
-        viewResolver.setTemplateEngine(templateEngine);
-
-        viewResolver.setCharacterEncoding("UTF-8");
-
-        return viewResolver;
-    }
-
-    @Bean
-    public SpringTemplateEngine templateEngine(SpringResourceTemplateResolver templateResolver){
-
-        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-
-        templateEngine.setTemplateResolver(templateResolver);
-
-        return  templateEngine;
-    }
-
-    @Bean
-    public SpringResourceTemplateResolver templateResolver(){
-
-        SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
-        templateResolver.setPrefix("/WEB-INF/views/");
-        templateResolver.setSuffix(".html");
-        templateResolver.setTemplateMode("HTML5");
-        templateResolver.setCacheable(false);
-        templateResolver.setCharacterEncoding("UTF-8");
-        return templateResolver;
     }
 }

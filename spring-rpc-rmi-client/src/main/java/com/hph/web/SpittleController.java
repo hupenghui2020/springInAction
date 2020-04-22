@@ -8,9 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
-/**
- * @author hph
- */
+
 @Controller
 @RequestMapping(value = "/spittles")
 public class SpittleController {
@@ -23,6 +21,8 @@ public class SpittleController {
     /**
      * 返回的视图根据访问路径判断，也就是spittles
      * 返回的mode的key根据返回类型判断，也就是spittleList
+     * @param max
+     * @param count
      * @return
      */
     @GetMapping
