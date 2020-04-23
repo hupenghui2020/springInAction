@@ -6,12 +6,14 @@ import com.hph.service.SpittleService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 
 /**
  * @author 10499
  */
-@Component
+@Service
 public class SpittleServiceImpl implements SpittleService {
 
     @Resource
