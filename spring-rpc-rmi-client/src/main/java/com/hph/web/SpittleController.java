@@ -1,3 +1,4 @@
+/*
 package com.hph.web;
 
 import com.hph.model.Spittle;
@@ -9,9 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 
+*/
 /**
  * @author hph
- */
+ *//*
+
 @Controller
 @RequestMapping(value = "/spittles")
 public class SpittleController {
@@ -21,13 +24,15 @@ public class SpittleController {
 
     private static final String MAX_LONG_AS_STRING = Long.MAX_VALUE+"";
 
-    /**
+    */
+/**
      * 返回的视图根据访问路径判断，也就是spittles
      * 返回的mode的key根据返回类型判断，也就是spittleList
      * @param max
      * @param count
      * @return
-     */
+     *//*
+
     @GetMapping
     public Page<Spittle> spittleList(
             @RequestParam(value = "max", defaultValue = MAX_LONG_AS_STRING) int max,
@@ -36,12 +41,14 @@ public class SpittleController {
         return spittleService.findAllForPage(max, count);
     }
 
-    /**
+    */
+/**
      * 获取指定的spittle
      * @param spittleId
      * @param model
      * @return
-     */
+     *//*
+
     @GetMapping(value = "/{spittleId}")
     public String findBySpittleId(@PathVariable("spittleId") String spittleId, Model model){
 
@@ -72,3 +79,4 @@ public class SpittleController {
         return "successful";
     }
 }
+*/

@@ -5,7 +5,6 @@ import com.hph.model.Spitter;
 import com.hph.service.SpitterService;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
@@ -13,7 +12,7 @@ import javax.annotation.Resource;
 /**
  * @author 10499
  */
-@Service
+@Component
 public class SpitterServiceImpl implements SpitterService {
 
     @Resource

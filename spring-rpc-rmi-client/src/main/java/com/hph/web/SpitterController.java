@@ -2,6 +2,7 @@ package com.hph.web;
 
 import com.hph.model.Spitter;
 import com.hph.service.SpitterService;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,7 @@ import javax.annotation.Resource;
 /**
  * @author hph
  */
-@RestController
+@Controller
 @RequestMapping(value = "/spitter")
 public class SpitterController {
 

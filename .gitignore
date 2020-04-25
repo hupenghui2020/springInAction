@@ -18,3 +18,5 @@ spring-mvc/classes/
 out/
 
 spring-mvc/target/
+
+spring-rpc-rmi-api/target/
