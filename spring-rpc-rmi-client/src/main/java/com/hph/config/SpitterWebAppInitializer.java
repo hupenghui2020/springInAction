@@ -11,7 +11,6 @@ import javax.servlet.ServletRegistration;
  * AbstractAnnotationConfigDispatcherServletInitializer
  * @author hph
  */
-
 public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     /**
@@ -19,7 +18,6 @@ public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcher
      * 用于加载spring的bean，java配置方式，RootConfig java类中
      * @return
      */
-
     @Override
     protected Class<?>[] getRootConfigClasses() {
 
@@ -32,7 +30,6 @@ public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcher
      * 控制器、视图解析器、处理器映射器
      * @return
      */
-
     @Override
     protected Class<?>[] getServletConfigClasses() {
 
@@ -43,7 +40,6 @@ public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcher
      * 请求映射规则
      * @return
      */
-
     @Override
     protected String[] getServletMappings() {
 
@@ -54,7 +50,6 @@ public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcher
      * servlet对multipart 请求的一些自定义配置
      * @param registration
      */
-
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
 

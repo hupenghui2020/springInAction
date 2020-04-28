@@ -20,7 +20,7 @@ public class RpcRmiClientConfiguration {
     public RmiProxyFactoryBean spitterService(){
 
         RmiProxyFactoryBean rmiProxyFactoryBean = new RmiProxyFactoryBean();
-        rmiProxyFactoryBean.setServiceUrl("rmi://localhost/SpitterService");
+        rmiProxyFactoryBean.setServiceUrl("rmi://127.0.0.1:1199/SpitterService");
         rmiProxyFactoryBean.setServiceInterface(SpitterService.class);
         return rmiProxyFactoryBean;
     }
