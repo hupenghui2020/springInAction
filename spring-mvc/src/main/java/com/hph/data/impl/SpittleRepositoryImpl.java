@@ -14,7 +14,7 @@ import java.util.UUID;
 /**
  * 通过这种方式可以自定义 sql
  * SpittleRepositoryImpl 会与 SpittleRepository 接口自动生成的实现类进行合并
- * @author hph
+ * @author com.hph
  */
 public class SpittleRepositoryImpl implements SpittleRepositorySwapper {
 

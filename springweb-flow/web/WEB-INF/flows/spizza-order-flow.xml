@@ -6,7 +6,7 @@
       start-state="identifyCustomer">
 
     <!-- 设置流程变量 -->
-    <var name="order" class="com.hph.domain.Order" />
+    <var name="order" class="com.com.hph.domain.Order" />
 
     <!-- 顾客子流程 -->
     <subflow-state id="identifyCustomer" subflow="pizza/customer">

@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 /**
- * @author hph
+ * @author com.hph
  */
 @Configuration
 public class DataSourceConfiguration {

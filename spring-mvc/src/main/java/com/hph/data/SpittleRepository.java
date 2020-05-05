@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * 通过 EnableJpaRepositories 注解扫描，会自动生成 SpittleRepository 接口的实现
  * 实现 SpittleRepositorySwapper 是需要自定义的方法
- * @author hph
+ * @author com.hph
  */
 public interface SpittleRepository extends JpaRepository<Spittle, String>,SpittleRepositorySwapper {
 }

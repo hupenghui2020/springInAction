@@ -16,8 +16,8 @@
     <!-- 创建披萨的状态 -->
     <view-state id="createPizza" model="flowScope.pizza">
         <on-entry>
-            <set name="flowScope.pizza" value="new com.hph.domain.Pizza()" />
-            <evaluate result="viewScope.toppingsList" expression="T(com.hph.domain.Topping).asList()" />
+            <set name="flowScope.pizza" value="new com.com.hph.domain.Pizza()" />
+            <evaluate result="viewScope.toppingsList" expression="T(com.com.hph.domain.Topping).asList()" />
         </on-entry>
         <transition on="addPizza" to="showOrder">
             <evaluate expression="order.addPizza(flowScope.pizza)" />

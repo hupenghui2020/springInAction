@@ -1,8 +1,8 @@
 /*
-package com.hph.web;
+package com.com.hph.web;
 
-import com.hph.model.Spittle;
-import com.hph.service.SpittleService;
+import com.com.hph.model.Spittle;
+import com.com.hph.service.SpittleService;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 
 */
 /**
- * @author hph
+ * @author com.hph
  *//*
 
 @Controller

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.jws.WebParam;
 
 /**
- * @author hph
+ * @author com.hph
  */
 @Controller
 @RequestMapping(value = "/spittles")

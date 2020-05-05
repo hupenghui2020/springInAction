@@ -10,25 +10,25 @@
        http://www.springframework.org/schema/util/spring-util.xsd">
 
     <!-- 先注释
-    <context:component-scan base-package="com.hph.demo"/>-->
-    <!--<bean id="compactDisc" class="com.hph.demo.SgtPeppers" />-->
+    <context:component-scan base-package="com.com.hph.demo"/>-->
+    <!--<bean id="compactDisc" class="com.com.hph.demo.SgtPeppers" />-->
 
     <!--也可以用c:compactDisc_ref ，但是以后肯能参数名字会改变，所以用参数位置 _0 比较好-->
-    <!--<bean class="com.hph.demo.CDPlayer" c:_0-ref="compactDisc">
+    <!--<bean class="com.com.hph.demo.CDPlayer" c:_0-ref="compactDisc">
         &lt;!&ndash;<constructor-arg ref="compactDisc" />&ndash;&gt;
         &lt;!&ndash;这里使用c-命名空间的写法&ndash;&gt;
     </bean>-->
 
     <!--属性注入方式-->
-    <!--<bean class="com.hph.demo.CDPlayer">
+    <!--<bean class="com.com.hph.demo.CDPlayer">
         <property name="compactDisc" ref="compactDisc"/>
     </bean>-->
 
     <!--属性注入：p-命名写法-->
-    <bean class="com.hph.demo.CDPlayer" p:compactDisc-ref="compactDisc" />
+    <bean class="com.com.hph.demo.CDPlayer" p:compactDisc-ref="compactDisc" />
 
     <!--字面量参数注入构造器-->
-    <!--<bean id="compactDisc" class="com.hph.demo.BlankDisc">
+    <!--<bean id="compactDisc" class="com.com.hph.demo.BlankDisc">
         <constructor-arg value="Sgt. Pepper's Lonely Hearts Club Band"/>
         <constructor-arg value="The Beatles" />
         <constructor-arg>
@@ -51,7 +51,7 @@
     </util:list>
 
     <!--属性注入：p-命名写法-->
-    <bean id="compactDisc" class="com.hph.demo.BlankDisc"
+    <bean id="compactDisc" class="com.com.hph.demo.BlankDisc"
 
           p:tracks-ref="tracks">
 
@@ -69,14 +69,14 @@
     </bean>
 
     <!--使用c-命名空间写法-->
-    <!--<bean id="compactDisc" class="com.hph.demo.BlankDisc"
+    <!--<bean id="compactDisc" class="com.com.hph.demo.BlankDisc"
           c:_0="Sgt. Pepper's Lonely Hearts Club Band"
           c:_1="The Beatles">
     </bean>-->
 
     <!--使用java配置和xml配置方案的混合-->
 
-    <bean class="com.hph.demo.CDConfig" />
+    <bean class="com.com.hph.demo.CDConfig" />
 
     <!--<import resource="classpath:cd-config.xml" />-->
 

@@ -3,7 +3,7 @@ package com.hph.service;
 import com.hph.model.Spitter;
 
 /**
- * @author hph
+ * @author com.hph
  */
 public interface SpitterService {
 

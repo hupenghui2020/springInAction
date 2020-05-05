@@ -10,12 +10,12 @@ import java.util.List;
 
 /**
  * 将多个bean分开配置
- * @author hph
+ * @author com.hph
  */
 
 @Configuration
 // @ComponentScan(basePackageClasses = CompactDisc.class)
-@PropertySource("classpath:/com/hph/demo/app.properties")
+@PropertySource("classpath:/com/com.hph/demo/app.properties")
 public class CDConfig {
 
     /*@Bean

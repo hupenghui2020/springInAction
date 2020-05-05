@@ -4,7 +4,7 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
 
 /**
  * 注册 springSecurityFilterChain ，用于对请求进行过滤
- * @author hph
+ * @author com.hph
  */
 public class SecurityWebInitializer extends AbstractSecurityWebApplicationInitializer {
 }

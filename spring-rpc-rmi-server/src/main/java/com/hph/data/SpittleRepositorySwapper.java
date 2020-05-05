@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.Transient;
 
 /**
- * @author hph
+ * @author com.hph
  */
 public interface SpittleRepositorySwapper {
 

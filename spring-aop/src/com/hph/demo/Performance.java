@@ -2,7 +2,7 @@ package com.hph.demo;
 
 /**
  * 切点
- * @author hph
+ * @author com.hph
  */
 public interface Performance {
 

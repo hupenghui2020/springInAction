@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 
 /**
- * @author hph
+ * @author com.hph
  */
 @Configuration
 @ComponentScan(basePackages = {"com.hph"},

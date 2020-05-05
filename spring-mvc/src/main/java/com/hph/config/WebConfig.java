@@ -13,7 +13,7 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 /**
- * @author hph
+ * @author com.hph
  */
 @Configuration
  // 该注解激活web功能

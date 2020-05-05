@@ -6,7 +6,7 @@
 </head>
 <body>
     <h2>Customer Registration</h2>
-    <%--@elvariable id="customer" type="com.hph.domain.Customer"--%>
+    <%--@elvariable id="customer" type="com.com.hph.domain.Customer"--%>
     <form:form commandName="customer">
         <!-- flowExecutionKey：当进入视图时，流程暂停并等待用户采取一些行为；当提交表单时，会返回流程，flowExecutionKey相当于一种返回流程的 “回程票” -->
         <input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey}">

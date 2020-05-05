@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- 声明Thymeleaf命名空间 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>save</title>
+</head>
+<body>
+    <form method="POST" th:object="${spittle}">
+
+        <div class="errors" th:if="${#fields.hasErrors('*')}">
+            <ul>
+                <li th:each="err : ${#fields.errors('*')}" th:text="${err}">
+                    Input is incorrect
+                </li>
+            </ul>
+        </div>
+
+        <!-- message -->
+        <label th:class="${#fields.hasErrors('message')} ? 'error'">
+            message
+        </label>
+        <input type="text" th:field="*{message}" th:class="${#fields.hasErrors('message')} ? 'error'"><br>
+
+        <!-- createTime -->
+        <label th:class="${#fields.hasErrors('createTime')} ? 'error'">
+            time
+        </label>
+        <input type="date" th:field="*{createTime}" th:class="${#fields.hasErrors('createTime')} ? 'error'"><br>
+
+        <!-- latitude -->
+        <label th:class="${#fields.hasErrors('latitude')} ? 'error'">
+            latitude
+        </label>
+        <input type="text" th:field="*{latitude}" th:class="${#fields.hasErrors('latitude')} ? 'error'"><br>
+
+        <!-- longitude -->
+        <label th:class="${#fields.hasErrors('longitude')} ? 'error'">
+            longitude
+        </label>
+        <input type="text" th:field="*{longitude}" th:class="${#fields.hasErrors('longitude')} ? 'error'"><br>
+
+        <!-- submit -->
+        <input type="submit" th:value="save">
+    </form>
+</body>
+</html>

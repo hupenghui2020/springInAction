@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * 注册的用户
- * @author hph
+ * @author com.hph
  */
 
 @Data

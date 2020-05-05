@@ -4,7 +4,7 @@ import com.hph.model.Spittle;
 import org.springframework.data.domain.Page;
 
 /**
- * @author hph
+ * @author com.hph
  */
 public interface SpittleService {
 

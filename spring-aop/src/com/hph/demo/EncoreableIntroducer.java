@@ -7,12 +7,12 @@ import org.aspectj.lang.annotation.DeclareParents;
 
 /**
  * 使用aop引进其它接口
- * @author hph
+ * @author com.hph
  */
 // @Aspect
 public class EncoreableIntroducer {
 
-    @DeclareParents(value = "com.hph.demo.Performance+",
+    @DeclareParents(value = "com.com.hph.demo.Performance+",
             defaultImpl = DefaultEncoreable.class)
     public static Encoreable encoreable;
 }

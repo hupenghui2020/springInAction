@@ -9,7 +9,7 @@ import javax.servlet.ServletRegistration;
 /**
  * servlet初始类：使用这种方式来配置应用上下问来替代传统的web.xml配置方式
  * AbstractAnnotationConfigDispatcherServletInitializer
- * @author hph
+ * @author com.hph
  */
 public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -54,7 +54,7 @@ public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcher
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
 
         // 自定义配置：文件上次时的临时目录，当表单上次文件时，会先上次到这个临时目录
-        registration.setMultipartConfig(new MultipartConfigElement("C:\\Users\\hph\\Desktop\\temp"));
+        registration.setMultipartConfig(new MultipartConfigElement("C:\\Users\\com.hph\\Desktop\\temp"));
     }
 }
 

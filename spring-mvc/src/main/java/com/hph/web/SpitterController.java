@@ -16,7 +16,7 @@ import javax.servlet.http.Part;
 import javax.validation.Valid;
 
 /**
- * @author hph
+ * @author com.hph
  */
 @Controller
 @RequestMapping(value = "/spitter")

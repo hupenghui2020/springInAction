@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @author hph
+ * @author com.hph
  */
 @Data
 public class Payment implements Serializable {

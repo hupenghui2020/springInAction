@@ -18,7 +18,7 @@
     </util:list>
 
     <!--属性注入：p-命名写法-->
-    <bean id="compactDisc" class="com.hph.demo.BlankDisc"
+    <bean id="compactDisc" class="com.com.hph.demo.BlankDisc"
           p:title="Sgt. Pepper's Lonely Hearts Club Band"
           p:artist="The Beatles"
           p:tracks-ref="tracks">
@@ -36,6 +36,6 @@
         </property>-->
     </bean>
 
-    <bean id="sgtPeppers" class="com.hph.demo.SgtPeppers" />
+    <bean id="sgtPeppers" class="com.com.hph.demo.SgtPeppers" />
 
 </beans>

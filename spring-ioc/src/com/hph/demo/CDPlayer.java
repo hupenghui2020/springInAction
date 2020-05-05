@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
- * @author hph
+ * @author com.hph
  */
 @Component
 public class CDPlayer implements MediaPalyer{

@@ -1,7 +1,7 @@
 package com.hph.demo;
 
 /**
- * @author hph
+ * @author com.hph
  * 光碟
  */
 public interface CompactDisc {

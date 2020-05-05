@@ -9,7 +9,7 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 
 
 /**
- * @author hph
+ * @author com.hph
  */
 @Configuration
 @ComponentScan(basePackages = {"com.hph"})

@@ -1,7 +1,7 @@
 package com.hph.demo;
 
 /**
- * @author hph
+ * @author com.hph
  */
 public interface CriticismEngine {
 

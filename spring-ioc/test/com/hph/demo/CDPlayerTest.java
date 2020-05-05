@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 
 
 /**
- * @author hph
+ * @author com.hph
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 // @ActiveProfiles("dev")

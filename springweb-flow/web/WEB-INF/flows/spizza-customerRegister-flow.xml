@@ -5,7 +5,7 @@
        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
     <!-- 设置流程变量 -->
-    <var name="customer" class="com.hph.domain.Customer" />
+    <var name="customer" class="com.com.hph.domain.Customer" />
 
     <!-- 欢迎顾客 -->
     <view-state id="welcome">
@@ -15,7 +15,7 @@
     <!-- 查找顾客 -->
     <action-state id="lookupCustomer">
         <evaluate result="customer" expression="pizzaFlowActions.lookupCustomer(requestParameters.phoneNumber)" />
-        <transition on-exception="com.hph.exception.CustomerNotFoundException" to="registrationForm"/>
+        <transition on-exception="com.com.hph.exception.CustomerNotFoundException" to="registrationForm"/>
         <transition to="customerReady" />
     </action-state>
 

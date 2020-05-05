@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.method.configuration.Globa
  * @Secured spring 特定的注解
  * @RolesAllowed java的标准注解
  * (这里是激活 @Secured 方式)
- * @author hph
+ * @author com.hph
  */
 @Configuration
 @EnableGlobalMethodSecurity(securedEnabled = true)

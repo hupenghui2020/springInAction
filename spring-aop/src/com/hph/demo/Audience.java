@@ -4,12 +4,12 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 
 /**
- * @author hph
+ * @author com.hph
  */
 // @Aspect
 public class Audience {
 
-    /*@Pointcut("execution(* com.hph.demo.Performance.perform(..))")
+    /*@Pointcut("execution(* com.com.hph.demo.Performance.perform(..))")
     public void performance(){}*/
 
     // @Before("performance()")

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- 声明Thymeleaf命名空间 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>showSpittle</title>
+</head>
+<body>
+
+    <form th:object="${spittle}">
+        <label>
+            <input type="text" th:value="*{getId()}" />
+        </label><br/>
+        <label>
+            <input type="text" th:value="*{getMessage()}"/>
+        </label><br/>
+        <label>
+            <input type="text" th:value="*{getCreateTime()}"/>
+        </label><br/>
+        <label>
+            <input type="text" th:value="*{getLatitude()}"/>
+        </label><br/>
+        <label>
+            <input type="text" th:value="*{getLongitude()}"/>
+        </label>
+    </form>
+</body>
+</html>

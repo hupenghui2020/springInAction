@@ -10,14 +10,14 @@ import java.util.Map;
 
 /**
  * 切面，计算次数
- * @author hph
+ * @author com.hph
  */
 // @Aspect
 public class TrackCounter {
 
     private Map<Integer, Integer> trackCounts = new HashMap<>();
 
-    /*@Pointcut("execution(* com.hph.demo.CompactDisc.playTrack(int)) && args(trackNumber)")
+    /*@Pointcut("execution(* com.com.hph.demo.CompactDisc.playTrack(int)) && args(trackNumber)")
     public void trackPlayed(int trackNumber){}*/
 
     // @Before("trackPlayed(trackNumber)")

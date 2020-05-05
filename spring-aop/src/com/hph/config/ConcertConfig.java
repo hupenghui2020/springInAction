@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author hph
+ * @author com.hph
  */
 @Configuration
-@ComponentScan(basePackages = "com.hph.demo")
+@ComponentScan(basePackages = "com.com.hph.demo")
 @EnableAspectJAutoProxy
 public class ConcertConfig {
 

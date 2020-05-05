@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ImportResource;
 
 /**
  * 多种bean配置方式组合
- * @author hph
+ * @author com.hph
  */
 @Configuration
 // @ImportResource("classpath:cd-config.xml")

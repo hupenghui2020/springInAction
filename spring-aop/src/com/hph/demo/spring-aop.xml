@@ -11,17 +11,17 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--扫描路径-->
-    <!--<context:component-scan base-package="com.hph.demo" />-->
+    <!--<context:component-scan base-package="com.com.hph.demo" />-->
 
     <!--启用AspectJ自动代理-->
     <!--<aop:aspectj-autoproxy />-->
 
-    <bean class="com.hph.config.TrackCounterConfig" />
+    <bean class="com.com.hph.config.TrackCounterConfig" />
 
     <aop:config>
         <aop:aspect ref="audience">
             
-            <aop:pointcut id="performPointcut" expression="execution(* com.hph.demo.Performance.perform(..))"/>
+            <aop:pointcut id="performPointcut" expression="execution(* com.com.hph.demo.Performance.perform(..))"/>
 
             <aop:before method="silenceCellPhones" pointcut-ref="performPointcut" />
 
@@ -38,7 +38,7 @@
     <aop:config>
         <aop:aspect ref="trackCounter">
 
-            <aop:pointcut id="trackPoint" expression="execution(* com.hph.demo.CompactDisc.playTrack(int)) and args(trackNumber)"/>
+            <aop:pointcut id="trackPoint" expression="execution(* com.com.hph.demo.CompactDisc.playTrack(int)) and args(trackNumber)"/>
 
             <aop:before method="countTrack" pointcut-ref="trackPoint" arg-names="trackNumber" />
 
@@ -49,20 +49,20 @@
     <!--通过切面引入新的功能接口-->
     <aop:config>
         <aop:aspect>
-            <aop:declare-parents types-matching="com.hph.demo.Performance+"
-                                 implement-interface="com.hph.demo.Encoreable"
+            <aop:declare-parents types-matching="com.com.hph.demo.Performance+"
+                                 implement-interface="com.com.hph.demo.Encoreable"
                                  delegate-ref="defaultEncoreable" />
         </aop:aspect>
     </aop:config>
 
     <!--新的功能接口的默认实现-->
-    <bean id="defaultEncoreable" class="com.hph.demo.DefaultEncoreable" />
+    <bean id="defaultEncoreable" class="com.com.hph.demo.DefaultEncoreable" />
 
     <!--带参数的切面定义-->
-    <bean id="trackCounter" class="com.hph.demo.TrackCounter" />
+    <bean id="trackCounter" class="com.com.hph.demo.TrackCounter" />
 
     <!--切面bean-->
-    <bean id="audience" class="com.hph.demo.Audience" />
+    <bean id="audience" class="com.com.hph.demo.Audience" />
 
-    <bean id="performance" class="com.hph.demo.PerformanceImpl" />
+    <bean id="performance" class="com.com.hph.demo.PerformanceImpl" />
 </beans>

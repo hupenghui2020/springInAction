@@ -23,8 +23,6 @@ public class RpcRmiServerConfiguration {
         RmiServiceExporter rmiServiceExporter = new RmiServiceExporter();
         rmiServiceExporter.setService(spitterService);
         rmiServiceExporter.setServiceName("SpitterService");
-        rmiServiceExporter.setRegistryHost("127.0.0.1");
-        rmiServiceExporter.setRegistryPort(1199);
         rmiServiceExporter.setServiceInterface(SpitterService.class);
         return rmiServiceExporter;
     }

@@ -14,7 +14,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import javax.sql.DataSource;
 
 /**
- * @author hph
+ * @author com.hph
  */
 @Configuration
 public class DataSourceConfiguration {

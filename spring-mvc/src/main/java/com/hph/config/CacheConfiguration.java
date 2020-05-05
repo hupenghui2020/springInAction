@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * 启动对缓存的支持
  * 使用方法：在需要缓存返回结果的方法上添加 Cacheable 注解即可
- * @author hph
+ * @author com.hph
  */
 
 @EnableCaching

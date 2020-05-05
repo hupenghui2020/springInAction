@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 /**
  * JPA方式持久化数据
  * EnableJpaRepositories 注解是spring data jpa的实现，通过该注解对指定的包进行扫描，并自动生成接口的实现
- * @author hph
+ * @author com.hph
  */
 @Configuration
 @EnableTransactionManagement
@@ -41,7 +41,7 @@ public class JpaConfiguration {
         entityManagerFactoryBean.setDataSource(dataSource);
         entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter);
         // 设置实体类包，扫描并查找带有@Entity注解的类
-        entityManagerFactoryBean.setPackagesToScan("com.hph.model");
+        entityManagerFactoryBean.setPackagesToScan("com.com.hph.model");
         return entityManagerFactoryBean;
     }
 

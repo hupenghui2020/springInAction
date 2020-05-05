@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
 /**
- * @author hph
+ * @author com.hph
  */
 public class MagicExistsCondition implements Condition {
     @Override

@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import java.util.List;
 
 /**
- * @author hph
+ * @author com.hph
  */
 public class BlankDisc implements CompactDisc{
 
