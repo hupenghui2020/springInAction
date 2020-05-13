@@ -4,7 +4,6 @@ import com.hph.service.SpitterService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter;
-import org.springframework.remoting.rmi.RmiServiceExporter;
 
 /**
  * @author 10499

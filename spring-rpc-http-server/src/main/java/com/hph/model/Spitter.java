@@ -17,6 +17,8 @@ import java.io.Serializable;
 @Data
 public class Spitter implements Serializable {
 
+    private static final long serialVersionUID = -2774832327776108693L;
+
     @Id
     @GenericGenerator(name = "idGenerator", strategy = "uuid")
     @GeneratedValue(generator = "idGenerator")
@@ -36,7 +38,4 @@ public class Spitter implements Serializable {
 
     @Column(name = "password", unique = true, nullable = false, length = 36)
     private String password;
-
-    @Column(name = "pic_name", unique = true, nullable = false, length = 36)
-    private String picName;
 }

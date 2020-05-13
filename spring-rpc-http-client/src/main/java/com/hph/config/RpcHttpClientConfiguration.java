@@ -20,7 +20,7 @@ public class RpcHttpClientConfiguration {
     public HttpInvokerProxyFactoryBean spitterService(){
 
         HttpInvokerProxyFactoryBean proxyFactoryBean = new HttpInvokerProxyFactoryBean();
-        proxyFactoryBean.setServiceUrl("http://localhost:8080/apitter.service");
+        proxyFactoryBean.setServiceUrl("http://localhost:8080/spitter/spitter.service");
         proxyFactoryBean.setServiceInterface(SpitterService.class);
         return proxyFactoryBean;
     }

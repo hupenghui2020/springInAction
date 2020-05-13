@@ -23,3 +23,5 @@ spring-mvc/target/
 *.jar
 
 spring-rpc-rmi-server/target/
+
+spring-rpc-http-client/target/

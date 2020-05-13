@@ -10,7 +10,6 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  */
 public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-
     /**
      * spring应用上下文的配置
      * 用于加载spring的bean，java配置方式，RootConfig java类中
@@ -34,7 +33,7 @@ public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcher
     @Override
     protected String[] getServletMappings() {
 
-        return new String[]{ "/" };
+        return new String[]{ "/spitter/*" };
     }
 }
 

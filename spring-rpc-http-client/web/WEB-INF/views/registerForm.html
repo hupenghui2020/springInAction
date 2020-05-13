@@ -46,10 +46,6 @@
         </label>
         <input type="password" th:field="*{password}" th:class="${#fields.hasErrors('password')} ? 'error'"><br>
 
-        <!-- Profile Picture -->
-        <label>Profile Picture</label>
-        <input type="file" name="profilePicture" accept="image/gif,image/jpeg,image/png"><br>
-
         <!-- submit -->
         <input type="submit" th:value="Register">
     </form>

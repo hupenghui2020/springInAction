@@ -20,8 +20,6 @@ public class SpittleRepositoryImpl implements SpittleRepositorySwapper {
     @Override
     public Spittle findOneSpittle(String id) {
 
-        System.out.println("我没走缓存");
-        String sql = "select * from spittle where id ='" + id +"'";
         return entityManager.find(Spittle.class, id);
     }
 

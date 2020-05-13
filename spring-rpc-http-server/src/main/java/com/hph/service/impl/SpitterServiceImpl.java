@@ -12,6 +12,7 @@ import javax.annotation.Resource;
 /**
  * @author 10499
  */
+
 @Component
 public class SpitterServiceImpl implements SpitterService {
 

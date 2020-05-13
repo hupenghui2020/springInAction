@@ -1,6 +1,7 @@
 package com.hph.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -14,13 +15,14 @@ import java.util.Properties;
  */
 @EnableWebMvc
 @Configuration
+@ComponentScan(basePackages = "com.hph.service.impl")
 public class WebConfig implements WebMvcConfigurer {
 
     @Bean
     public HandlerMapping httpInvokerMapping(){
         SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();
         Properties mappings = new Properties();
-        mappings.setProperty("/spitter.service", "spitterServiceImpl");
+        mappings.setProperty("/spitter.service", "httpInvokerServiceExporter");
         mapping.setMappings(mappings);
         return mapping;
     }
