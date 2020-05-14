@@ -26,4 +26,6 @@ spring-rpc-rmi-server/target/
 
 spring-rpc-http-client/target/
 
-spring-jms-activeMq-producer/target/classes/
+spring-jms-activeMq-producer/target/
+
+spring-jms-activeMq-consumer/target/
