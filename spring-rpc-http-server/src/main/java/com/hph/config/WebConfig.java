@@ -15,7 +15,6 @@ import java.util.Properties;
  */
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = "com.hph.service.impl")
 public class WebConfig implements WebMvcConfigurer {
 
     @Bean

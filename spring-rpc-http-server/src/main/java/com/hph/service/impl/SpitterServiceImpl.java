@@ -30,6 +30,6 @@ public class SpitterServiceImpl implements SpitterService {
 
         Spitter spitter = new Spitter();
         spitter.setUsername(username);
-        return spitterRepository.findOne(Example.of(spitter)).orElse(null);
+        return spitterRepository.findAll(Example.of(spitter)).get(0);
     }
 }
