@@ -1,5 +1,8 @@
 package com.hph.config;
 
+import org.springframework.web.context.AbstractContextLoaderInitializer;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
@@ -10,18 +13,24 @@ import javax.servlet.ServletRegistration;
  * @author com.hph
  */
 
-public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class SpitterWebAppInitializer extends AbstractContextLoaderInitializer {
+    @Override
+    protected WebApplicationContext createRootApplicationContext() {
+        AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
+        applicationContext.register(RootConfig.class);
+        return applicationContext;
+    }
 
     /**
      * spring应用上下文的配置
      * 用于加载spring的bean，java配置方式，RootConfig java类中
      * @return
      */
-    @Override
+    /*@Override
     protected Class<?>[] getRootConfigClasses() {
 
         return new Class<?>[]{ RootConfig.class };
-    }
+    }*/
 
     /**
      * web应用上下文的配置，通过ContextLoaderListener
@@ -30,32 +39,32 @@ public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcher
      * @return
      */
 
-    @Override
+    /*@Override
     protected Class<?>[] getServletConfigClasses() {
 
         return new Class<?>[]{ WebConfig.class };
-    }
+    }*/
 
     /**
      * 请求映射规则
      * @return
      */
-    @Override
+    /*@Override
     protected String[] getServletMappings() {
 
         return new String[]{ "/" };
-    }
+    }*/
 
     /**
      * servlet对multipart 请求的一些自定义配置
      * @param registration
      */
 
-    @Override
+    /*@Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
 
         // 自定义配置：文件上次时的临时目录，当表单上次文件时，会先上次到这个临时目录
         registration.setMultipartConfig(new MultipartConfigElement("C:\\Users\\hph\\Desktop\\temp"));
-    }
+    }*/
 }
 
