@@ -4,6 +4,9 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
 
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration;
+
 /**
  * servlet初始类：使用这种方式来配置应用上下问来替代传统的web.xml配置方式
  * AbstractAnnotationConfigDispatcherServletInitializer
