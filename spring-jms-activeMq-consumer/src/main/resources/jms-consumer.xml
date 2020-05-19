@@ -5,7 +5,8 @@
        xmlns:amq="http://activemq.apache.org/schema/core"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd">
 
-    <!-- 消息监听容器：
+    <!--消息驱动的POJO
+        消息监听容器：
         当消息到达时，该 bean 会取出消息，并把消息传递给任意一个对此消息感兴趣的监听器
         因为 JmsTemplate 的 receive 方法是阻塞的，同步的，不可取，这里使用监听器从而实现异步 -->
     <jms:listener-container connection-factory="activeMQConnectionFactory">

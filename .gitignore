@@ -29,3 +29,11 @@ spring-rpc-http-client/target/
 spring-jms-activeMq-producer/target/
 
 spring-jms-activeMq-consumer/target/
+
+spring-rpc-rmi-client/target/
+
+spring-rpc-rmi-server/target/
+
+spring-amqp-rabbitMq-consumer/target/
+
+spring-amqp-rabbitMq-producer/target/

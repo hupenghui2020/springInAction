@@ -15,7 +15,7 @@ import java.util.List;
 
 @Configuration
 // @ComponentScan(basePackageClasses = CompactDisc.class)
-@PropertySource("classpath:/com/com.hph/demo/app.properties")
+@PropertySource("classpath:com/hph/demo/app.properties")
 public class CDConfig {
 
     /*@Bean

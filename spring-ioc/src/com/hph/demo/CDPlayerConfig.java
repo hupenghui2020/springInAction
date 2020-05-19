@@ -21,7 +21,7 @@ import java.util.List;
 // @ComponentScan // 默认是当前配置文件所在的包
 // @ComponentScan(basePackageClasses = CompactDisc.class) // 扫描CompactDisc所在的包
 // 引入外部属性值文件
-@PropertySource("classpath:/com/com.hph/demo/app.properties")
+@PropertySource("classpath:com/hph/demo/app.properties")
 public class CDPlayerConfig {
 
     @Autowired
