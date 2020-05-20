@@ -1,10 +1,7 @@
 package com.hph.config;
 
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.*;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 
 /**
@@ -13,6 +10,7 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 @Configuration
 @ComponentScan(basePackages = {"com.hph"})
 @ImportResource("classpath:amqp-consumer.xml")
+@PropertySource("classpath:amqp-consumer.properties")
 public class RootConfig {
 
     /**

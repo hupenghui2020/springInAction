@@ -14,6 +14,10 @@
     <!-- 该元素回创建一个 RabbitMQ 管理组件，用于自动创建以下元素所声明的 queue、exchange、binding -->
     <admin connection-factory="connectionFactory"/>
 
+    <!-- 这里举例没有声明exchange，使用默认的 direct 类型 exchange。所有的queue都绑定再这个exchange上，
+    并且routing key 与 queue 名称一致 -->
+    <queue id="spittleAlertQueue" name="spittle.alerts" />
+
     <!-- **********RabbitMQ 管理主键创建 start********* -->
     <!-- 声明队列 -->
     <!--<queue name="spittle.alert.queue.1" />
@@ -34,14 +38,7 @@
     </fanout-exchange>-->
     <!-- **********RabbitMQ 管理主键创建 end********* -->
 
-    <!-- 使用这种处理方式非异步，使用下面的消息驱动 POJO 的方式来处理消息
     <template id="rabbitTemplate" connection-factory="connectionFactory"
               exchange="spittle.alert.exchange"
-              routing-key="spittle.alerts"
-              queue="spittle.alert.queue"/>-->
-
-    <!-- 使用消息驱动 POJO 的方式处理消息 -->
-    <listener-container connection-factory="connectionFactory">
-        <listener ref="alertHandler" method="sendSpittleAlert" queue-names="spittle.alert.queue" />
-    </listener-container>
+              routing-key="spittle.alerts"/>
 </beans:beans>
