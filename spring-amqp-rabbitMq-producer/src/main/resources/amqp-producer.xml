@@ -16,7 +16,7 @@
 
     <!-- 这里举例没有声明exchange，使用默认的 direct 类型 exchange。所有的queue都绑定再这个exchange上，
     并且routing key 与 queue 名称一致 -->
-    <queue id="spittleAlertQueue" name="spittle.alerts" />
+    <queue id="spitterAlertQueue" name="spitter.alerts" />
 
     <!-- **********RabbitMQ 管理主键创建 start********* -->
     <!-- 声明队列 -->
@@ -39,6 +39,6 @@
     <!-- **********RabbitMQ 管理主键创建 end********* -->
 
     <template id="rabbitTemplate" connection-factory="connectionFactory"
-              exchange="spittle.alert.exchange"
-              routing-key="spittle.alerts"/>
+              exchange="spitter.alert.exchange"
+              routing-key="spitter.alerts"/>
 </beans:beans>

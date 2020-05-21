@@ -1,11 +1,11 @@
 package com.hph.service;
 
-import com.hph.model.Spittle;
+import com.hph.model.Spitter;
 
 /**
  * @author hph
  */
 public interface AlertService {
 
-    void sendSpittleAlert(final Spittle spittle);
+    void sendSpitterAlert(final Spitter spitter);
 }
