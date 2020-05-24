@@ -18,6 +18,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 @Configuration
  // 该注解激活web功能
 @EnableWebMvc
+@ComponentScan(basePackages = "com.hph.web")
 public class WebConfig implements WebMvcConfigurer {
 
     /**

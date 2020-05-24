@@ -8,10 +8,22 @@
        http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
 
     <!-- RabbitMQ 连接工厂 -->
-    <rabbit:connection-factory id="connectionFactory" host="${rabbitmq.host}" port="${rabbitmq.port}" username="${rabbitmq.username}" password="${rabbitmq.password}" />
+    <rabbit:connection-factory id="connectionFactory"
+                        host="127.0.0.1"
+                        port="5672"
+                        username="guest"
+                        password="guest"/>
 
     <!-- 该元素回创建一个 RabbitMQ 管理组件，用于自动创建以下元素所声明的 queue、exchange、binding -->
     <rabbit:admin connection-factory="connectionFactory"/>
+
+    <rabbit:queue id="spitterAlertQueue" name="spitter.alert.queue" />
+
+    <rabbit:queue id="queue1" name="spitter.alert.queue.1" />
+
+    <rabbit:queue id="queue2" name="spitter.alert.queue.2" />
+
+    <rabbit:queue id="queue3" name="spitter.alert.queue.3" />
 
     <!-- **********RabbitMQ 管理主键创建 start********* -->
     <!-- 声明队列 -->
@@ -40,7 +52,15 @@
               queue="spittle.alert.queue"/>-->
 
     <!-- 使用消息驱动 POJO 的方式处理消息 -->
+    <!--<rabbit:listener-container connection-factory="connectionFactory">
+        <rabbit:listener ref="alertHandler" method="sendSpitterAlert"
+                         queues="spitterAlertQueue"
+                         response-routing-key="spitter.alerts"
+                         response-exchange="spitter.alert.exchange"/>
+    </rabbit:listener-container>-->
+
     <rabbit:listener-container connection-factory="connectionFactory">
-        <rabbit:listener ref="alertHandler" method="sendSpitterAlert" queue-names="spitter.alert.queue" />
+        <rabbit:listener ref="alertHandler" method="sendSpitterAlert"
+                         queues="spitterAlertQueue"/>
     </rabbit:listener-container>
 </beans>

@@ -48,7 +48,7 @@ public class SpitterController {
         }
         spitter.setPicName(profilePicture.getSubmittedFileName());
         model.addFlashAttribute(spitter);
-        alertService.sendSpittleAlert(spitter);
-        return "redirect:/success";
+        alertService.sendSpitterAlert(spitter);
+        return "redirect:/spitter/success";
     }
 }

@@ -7,8 +7,8 @@ import org.apache.activemq.spring.ActiveMQConnectionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
 import org.springframework.jms.support.converter.MessageConverter;
-
 import javax.jms.ConnectionFactory;
 
 /**
@@ -22,7 +22,7 @@ public class JmsProducerConfig {
      * @return
      */
     @Bean
-    public ConnectionFactory activeMQConnectionFactory(){
+    public ConnectionFactory connectionFactory(){
 
         ActiveMQConnectionFactory activeMQConnectionFactory = new ActiveMQConnectionFactory();
         activeMQConnectionFactory.setBrokerURL("tcp://localhost:61616");
@@ -57,27 +57,27 @@ public class JmsProducerConfig {
      * 定义消息转换器
      * @return
      */
-    /*@Bean
+    @Bean
     public MessageConverter messageConverter(){
         return new MappingJackson2MessageConverter();
-    }*/
+    }
 
     /**
      * 定义 jms 模板
-     * @param activeMQConnectionFactory
+     * @param connectionFactory
      * @param activeMQTopic
      * @param messageConverter
      * @return
      */
     @Bean
-    public JmsTemplate jmsTemplate(ActiveMQConnectionFactory activeMQConnectionFactory,
+    public JmsTemplate jmsTemplate(ConnectionFactory connectionFactory,
                                    ActiveMQTopic activeMQTopic,
                                    MessageConverter messageConverter){
         JmsTemplate jmsTemplate = new JmsTemplate();
-        jmsTemplate.setConnectionFactory(activeMQConnectionFactory);
+        jmsTemplate.setConnectionFactory(connectionFactory);
         // 设置目的地
         jmsTemplate.setDefaultDestination(activeMQTopic);
-        // jmsTemplate.setMessageConverter(messageConverter);
+        jmsTemplate.setMessageConverter(messageConverter);
         return jmsTemplate;
     }
 }

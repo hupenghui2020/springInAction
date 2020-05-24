@@ -6,39 +6,38 @@
 
     <!-- RabbitMQ 连接工厂 -->
     <connection-factory id="connectionFactory"
-                        host="${rabbitmq.host}"
-                        port="${rabbitmq.port}"
-                        username="${rabbitmq.username}"
-                        password="${rabbitmq.password}"/>
+                        host="127.0.0.1"
+                        port="5672"
+                        username="guest"
+                        password="guest"/>
 
     <!-- 该元素回创建一个 RabbitMQ 管理组件，用于自动创建以下元素所声明的 queue、exchange、binding -->
     <admin connection-factory="connectionFactory"/>
 
     <!-- 这里举例没有声明exchange，使用默认的 direct 类型 exchange。所有的queue都绑定再这个exchange上，
     并且routing key 与 queue 名称一致 -->
-    <queue id="spitterAlertQueue" name="spitter.alerts" />
+    <queue id="spitterAlertQueue" name="spitter.alert.queue" />
 
     <!-- **********RabbitMQ 管理主键创建 start********* -->
     <!-- 声明队列 -->
-    <!--<queue name="spittle.alert.queue.1" />
+    <queue id="queue1" name="spitter.alert.queue.1" />
 
-    <queue name="spittle.alert.queue.2" />
+    <queue id="queue2" name="spitter.alert.queue.2" />
 
-    <queue name="spittle.alert.queue.3" />-->
+    <queue id="queue3" name="spitter.alert.queue.3" />
 
     <!-- fanout 类型的exchange，不管消息的routing key 和参数表的头信息/值是什么，消息将会路由到所有队列上 -->
-    <!--<fanout-exchange name="spittle.fanout" >
+    <fanout-exchange id="exchange" name="spittle.fanout">
         <bindings>
-            <binding queue="spittle.alert.queue.1" />
+            <binding queue="queue1" />
 
-            <binding queue="spittle.alert.queue.2" />
+            <binding queue="queue2" />
 
-            <binding queue="spittle.alert.queue.3" />
+            <binding queue="queue3" />
         </bindings>
-    </fanout-exchange>-->
+    </fanout-exchange>
     <!-- **********RabbitMQ 管理主键创建 end********* -->
 
     <template id="rabbitTemplate" connection-factory="connectionFactory"
-              exchange="spitter.alert.exchange"
-              routing-key="spitter.alerts"/>
+              exchange="exchange"/>
 </beans:beans>

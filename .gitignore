@@ -37,3 +37,5 @@ spring-rpc-rmi-server/target/
 spring-amqp-rabbitMq-consumer/target/
 
 spring-amqp-rabbitMq-producer/target/
+
+spring-jmx-server/target/
