@@ -1,13 +1,6 @@
-buildscript {
-    repositories {
-        mavenLocal()
-    }
-    dependencies {
-        classpath("org.spring")
-    }
-}
 plugins {
     id 'java'
+    id 'spring-boot'
 }
 
 group 'org.example'
