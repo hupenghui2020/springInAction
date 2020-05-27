@@ -39,3 +39,7 @@ spring-amqp-rabbitMq-consumer/target/
 spring-amqp-rabbitMq-producer/target/
 
 spring-jmx-server/target/
+
+spring-boot-demo/.mvn/wrapper/
+
+*.cmd
